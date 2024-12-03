@@ -1,11 +1,19 @@
 #!/bin/bash 
-echo enter a number
-read n1
-read -p "enter a number" n2
-if [ $n1 -gt $n2 ]
-then 
-echo $n1 is greater number| tee shellwrite.txt
-elif [ $n2 -gt $n1 ]
-then
-echo $n2 is greater number  | tee shellwrite.txt
-fi
+
+read -p "enter a number" n1
+read -p "enter another number" n2
+
+echo "enter the action M, A or S"
+read ch
+case $ch in
+    m|M)
+        echo "$(($n1*$n2))" | tee shellwrite.txt
+        ;;
+    a|A)
+        echo "$(($n1+$n2))" | tee shellwrite.txt
+        ;;
+    s|S)
+        echo "$(($n1-$n2))" | tee shellwrite.txt 
+        ;;
+esac
+
