@@ -1,4 +1,5 @@
 #!/bin/bash 
+
 read -p "enter a number" n1
 read -p "enter another number" n2
 
@@ -15,3 +16,4 @@ case $ch in
         echo "$(($n1-$n2))" | tee shellwrite.txt 
         ;;
 esac
+
