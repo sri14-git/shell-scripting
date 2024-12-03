@@ -1,8 +1,17 @@
 #!/bin/bash 
-echo enter your name?
-read NAME 
-echo hello $NAME "writing using a scrp" > shellwrite.txt
-pythonans=$(python3 test.py)
-echo $pythonans
-[ hello = hellos ]
-echo $?
+read -p "enter a number" n1
+read -p "enter another number" n2
+
+echo "enter the action M, A or S"
+read ch
+case $ch in
+    m|M)
+        echo "$(($n1*$n2))" | tee shellwrite.txt
+        ;;
+    a|A)
+        echo "$(($n1+$n2))" | tee shellwrite.txt
+        ;;
+    s|S)
+        echo "$(($n1-$n2))" | tee shellwrite.txt 
+        ;;
+esac
